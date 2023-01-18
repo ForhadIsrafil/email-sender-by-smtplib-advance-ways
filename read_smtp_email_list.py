@@ -7,13 +7,17 @@ from email.utils import formataddr
 from time import perf_counter
 import json, os
 from datetime import datetime
+import sys
+
+try:
+    email_per_rotaion = int(input("Emails per rotation: ").strip())
+    if email_per_rotaion == 1 or email_per_rotaion == 0:
+        sys.exit("0/1 not acceptable.")
+except Exception as e:
+    sys.exit("Please input interger value")
 
 print('start time: ', datetime.now())
 start_time = perf_counter()
-
-# try:
-# context = ssl.create_default_context()
-
 
 # ------------------------------------------------------------------------------------------------------------
 
