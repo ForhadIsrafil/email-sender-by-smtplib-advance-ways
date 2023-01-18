@@ -32,8 +32,8 @@ print(f"Total Accounts: {accounts_len}")
 account_position = 1
 
 start_email = 0
-end_email = 4
-for email in range(int(emails.__len__() / 4) + 1):
+end_email = email_per_rotaion
+for email in range(int(emails.__len__() / email_per_rotaion) + 1):
     # print(emails[start_email:end_email])
     cred = accounts[account_position - 1]
 
@@ -124,8 +124,8 @@ for email in range(int(emails.__len__() / 4) + 1):
         server.send_message(msg=msg, from_addr=mail, to_addrs=emails[start_email:end_email])
 
         print(f"Total Emails Sent => {end_email}")
-        start_email += 4
-        end_email += 4
+        start_email += email_per_rotaion
+        end_email += email_per_rotaion
 
     except Exception as e:
         print(f"Error for {cred['email']}")
